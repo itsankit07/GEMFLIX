@@ -1,0 +1,66 @@
+.shimmerCard {
+  flex: 0 0 auto;
+  width: 250px;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shimmer 1.5s infinite;
+  }
+}
+
+.media {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  z-index: 1;
+}
+
+.shimmerTitle {
+  width: 60%;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.metadata {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.shimmerYear,
+.shimmerRating {
+  width: 40px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

@@ -1,0 +1,38 @@
+@use "../../styles/variables" as var;
+
+.container {
+  width: 100%;
+  padding: 20px;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var.$netflix-white;
+}
+
+.slider {
+  display: flex;
+  gap: 15px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var.$netflix-red;
+    border-radius: 10px;
+  }
+}

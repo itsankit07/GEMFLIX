@@ -1,0 +1,55 @@
+@use "../../../styles/variables" as var;
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.input {
+  padding: 1.2rem;
+  background-color: var.$netflix-black;
+  border: 1px solid var.$netflix-white;
+  border-radius: 5px;
+  color: var.$netflix-white;
+  font-size: 1rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  outline: none;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:focus {
+    border-color: #00bcd4; /* Focus border color */
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.5); /* Focus shadow */
+  }
+
+  &::placeholder {
+    color: rgb(214, 197, 197);
+    font-weight: 400;
+  }
+}
+
+.errorBorder {
+  border-color: var.$netflix-red !important; /* Red border for error state */
+}
+
+.error {
+  color: var.$netflix-red;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  padding-left: 0.5 rem;
+}
+
+.showPassword {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  color: var.$netflix-white;
+  font-size: 1rem;
+
+  input[type="checkbox"] {
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }
+}

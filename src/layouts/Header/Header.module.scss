@@ -1,0 +1,166 @@
+.container {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  z-index: 100;
+  background-color: transparent;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  align-items: center;
+
+  .img {
+    width: 8rem;
+    z-index: 100;
+  }
+
+  .navContainer {
+    margin-left: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .desktopNav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .nav {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          cursor: pointer;
+          color: #ffffff;
+          font-size: 1rem;
+          transition: color 0.3s;
+          &:hover {
+            color: #e50914;
+          }
+
+          a {
+            text-decoration: none;
+            color: inherit;
+          }
+        }
+      }
+
+      .right {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        padding: 0 10px;
+
+        .search {
+          color: white;
+          cursor: pointer;
+        }
+
+        .button {
+          background-color: #db0000;
+          font-weight: 400;
+          color: white;
+          padding: 10px 15px;
+          outline: none;
+          border: none;
+          cursor: pointer;
+          border-radius: 8px;
+        }
+      }
+    }
+
+    .mobileNavToggle {
+      display: none;
+      cursor: pointer;
+      cursor: pointer;
+      margin-left: auto; // Add this to push to right
+      padding-right: 20px; // Add some spacing from edge
+      color: white; // Ensure icon is visible
+      background: none;
+      border: none;
+      @media (max-width: 1024px) {
+        display: block;
+      }
+    }
+
+    .mobileNav {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    justify-content: flex-end; // Add this to align items to right
+
+    .navContainer {
+      .desktopNav {
+        display: none;
+      }
+
+      .mobileNavToggle {
+        display: block;
+      }
+
+      .mobileNav {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 200;
+        padding: 4rem 2rem;
+
+        ul {
+          list-style: none;
+          padding: 0;
+          
+          li {
+            margin-bottom: 2rem;
+            
+            a {
+              color: white;
+              text-decoration: none;
+              font-size: 1.5rem;
+              display: flex;
+              align-items: center;
+              gap: 1rem;
+            }
+          }
+
+          .mobileNavActions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+
+            a, button {
+              padding: 1rem;
+              text-align: center;
+              border-radius: 8px;
+            }
+
+            a {
+              background-color: #333;
+              color: white;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 1rem;
+            }
+
+            button {
+              background-color: #db0000;
+              color: white;
+              border: none;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}

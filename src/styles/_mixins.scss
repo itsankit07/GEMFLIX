@@ -1,0 +1,25 @@
+@use "./variables" as var;
+
+@mixin flex-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin fullScreenContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var.$netflix-black;
+  color: var.$netflix-white;
+}
