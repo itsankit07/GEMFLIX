@@ -5,13 +5,13 @@ import * as styles from "./Inputfield.module.scss";
 type InputFieldProps = {
   type: string;
   placeholder: string;
-  value?: string;
+  defaultValue?: string;
   error?: string;
   className?: string;
   ref?: React.RefObject<HTMLInputElement>;
 };
 
-export const InputField = ({ type, placeholder, value, error, className, ref }: InputFieldProps) => {
+export const InputField = ({ type, placeholder, defaultValue, error, className, ref }: InputFieldProps) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -22,7 +22,7 @@ export const InputField = ({ type, placeholder, value, error, className, ref }: 
     <div className={styles.inputWrapper}>
       <input
         ref={ref}
-        value={value}
+        defaultValue={defaultValue}
         type={type === "password" && isPasswordVisible ? "text" : type}
         placeholder={placeholder}
         className={`${styles.input} ${error ? styles.errorBorder : ""} ${className}`}
