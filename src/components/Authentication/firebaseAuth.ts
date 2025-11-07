@@ -3,7 +3,7 @@ import { signInWithEmailAndPassword, signOut, updateProfile } from "firebase/aut
 import { auth } from "../../utils/firebase";
 
 export const registerUser = async (email: string, password: string, name: string) => {
-  const userDetails = await signInWithEmailAndPassword(auth, email, password);
+  const userDetails = await createUserWithEmailAndPassword(auth, email, password);
   const user = userDetails.user;
   await updateProfile(user, { displayName: name });
   return user;
