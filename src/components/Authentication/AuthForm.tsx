@@ -66,7 +66,6 @@ export const AuthForm: React.FC = () => {
       <InputField
         ref={emailRef}
         type="text"
-        value="aksingh86510@gmail.com"
         placeholder="Email Address"
         error={fieldErrors.email}
       />
