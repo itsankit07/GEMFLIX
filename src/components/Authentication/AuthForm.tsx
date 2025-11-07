@@ -11,8 +11,12 @@ import { loginUser, registerUser } from "./firebaseAuth";
 import * as styles from "./Authentication.module.scss";
 
 export const AuthForm: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const toggleLogin = () => setIsLoggedIn(!isLoggedIn);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
+  const toggleLogin = () => {
+    setIsLoggedIn(!isLoggedIn);
+    if (emailRef.current) emailRef.current.value = "";
+    if (passwordRef.current) passwordRef.current.value = "";
+  };
 
   const [validMsg, setValidMsg] = useState<string>("");
   const [fieldErrors, setFieldErrors] = useState<FormErrors>({});
@@ -63,13 +67,8 @@ export const AuthForm: React.FC = () => {
       <h4 className={styles.heading}>{isLoggedIn ? "Sign In" : "Sign Up"}</h4>
 
       {!isLoggedIn && <InputField ref={nameRef} type="text" placeholder="Your Name" error={fieldErrors.name} />}
-      <InputField
-        ref={emailRef}
-        type="text"
-        placeholder="Email Address"
-        error={fieldErrors.email}
-      />
-      <InputField ref={passwordRef} type="password" placeholder="Password" error={fieldErrors.password} />
+      <InputField ref={emailRef} type="text" defaultValue="test-123@gmail.com" placeholder="Email Address" error={fieldErrors.email} />
+      <InputField ref={passwordRef} type="password" defaultValue="Gemflix@123" placeholder="Password" error={fieldErrors.password} />
 
       {validMsg && <p className={styles.validMessage}>{validMsg}</p>}
 
